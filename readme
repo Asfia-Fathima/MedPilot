@@ -1,0 +1,111 @@
+# **Health Pilot – AI Medical Report Assistant**
+
+**Health Pilot** is an Android app designed to help users **easily understand their medical reports**. It uses OCR to extract text from lab reports and AI to provide simple, patient-friendly explanations of medical values, highlighting whether results are normal, high, or low.
+
+---
+
+## **Features**
+
+* **OCR (Image to Text):** Upload or capture lab reports to extract text.
+* **AI Analysis:** Sends extracted text to an AI API (e.g., Groq API) for interpretation.
+* **Simplified Explanations:** Provides plain-language descriptions of lab results.
+* **Result Indicators:** Shows whether values are normal, high, or low.
+* **Secure API Handling:** Uses `BuildConfig` and `local.properties` for API keys.
+* **Optional Chat:** Users can ask follow-up questions for clarification.
+
+---
+
+## **Tech Stack**
+
+* **Language:** Kotlin
+* **Frameworks:** Android SDK
+* **Networking:** Retrofit, Gson, OkHttp Logging
+* **Storage:** Local device storage for report history
+* **AI API:** hugging face API (or Groq API for testing)
+
+---
+
+## **Project Structure**
+
+* `MainActivity.kt` – Handles UI, OCR, and API communication
+* `RetrofitClient.kt` – Retrofit client setup
+* `ReportAnalyzer.kt` – Extracts lab values using regex
+* `HuggingFaceResponseItem.kt` – JSON response model
+
+---
+
+## **Setup Instructions (For New Viewers / Replication)**
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   ```
+
+2. **Open in Android Studio**
+
+   * Use Android Studio Arctic Fox or higher.
+   * Sync Gradle to install dependencies.
+
+3. **Add API Keys**
+
+   * Store your hugging face API key in `local.properties`:
+
+     ```
+     HF_API_KEY=your_api_key_here
+     ```
+   * Access in code via `BuildConfig.HF_API_KEY`.
+
+4. **Dependencies** (already in `build.gradle`):
+
+   * Retrofit, Gson, OkHttp Logging
+   * ML Kit / OCR library
+   * AndroidX and Material Design components
+
+5. **Run the App**
+
+   * Connect an Android device or use an emulator.
+   * Build and run `MainActivity.kt`.
+   * Upload a medical report to see the analysis.
+
+6. **Optional Improvements / Contributions**
+
+   * Enhance regex for lab value extraction.
+   * Add RecyclerView chat UI for better interactions.
+   * Implement cloud storage for report history.
+   * Fine-tune AI prompts for more accurate results.
+
+---
+
+## **Usage**
+
+1. Open the app on your device.
+2. Upload or click a photo of your medical report.
+3. Wait for OCR to extract text.
+4. View AI-generated explanations of your lab results.
+5. Ask follow-up questions in chat (if implemented).
+
+---
+
+## **Future Roadmap**
+
+* Advanced AI interpretation with medical context
+* Multi-language support for reports
+* Cloud sync and secure storage
+* Personalized health insights and notifications
+
+---
+
+## **Contributing**
+
+1. Fork the repo.
+2. Create a new branch (`feature-name`).
+3. Commit your changes.
+4. Push to your branch and create a Pull Request.
+
+---
+
+## **License**
+
+MIT License – Free to use and modify with attribution.
+
