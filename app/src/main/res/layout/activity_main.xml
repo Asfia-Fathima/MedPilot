@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgDark">
+
+    <!-- TOP BAR -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="@color/topBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/menuToggle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            android:contentDescription="@string/cd_menu_button" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/primary"
+            android:textSize="20sp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- SIDEBAR -->
+    <LinearLayout
+        android:id="@+id/sidebar"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/sidebarDark"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/sidebarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/primaryLight"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingBottom="12dp" />
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:textColor="@color/textLight"
+            android:backgroundTint="@color/sidebarButton" />
+
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/history"
+            android:textColor="@color/textLight"
+            android:backgroundTint="@color/sidebarButton" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/helpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_email"
+            android:textColor="@color/helpLight"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- MAIN CARD -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainCard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/cardDark"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sidebar"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Upload -->
+                <TextView
+                    android:id="@+id/uploadLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upload_report"
+                    android:textSize="18sp"
+                    android:textColor="@color/textWhite"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/uploadButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/select_image"
+                    android:backgroundTint="@color/primaryLight"
+                    android:textColor="@color/bgDark" />
+
+                <TextView
+                    android:id="@+id/fileNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_file_selected"
+                    android:textColor="@color/textGrey"
+                    android:layout_marginTop="6dp" />
+
+                <!-- OCR -->
+                <TextView
+                    android:id="@+id/ocrLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ocr_result"
+                    android:textSize="16sp"
+                    android:textColor="@color/textWhite"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    app:cardBackgroundColor="@color/cardInner">
+
+                    <TextView
+                        android:id="@+id/ocrResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ocr_placeholder"
+                        android:textColor="@color/textWhite"
+                        android:textSize="14sp" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- AI Analysis -->
+                <TextView
+                    android:id="@+id/analysisLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ai_analysis"
+                    android:textSize="16sp"
+                    android:textColor="@color/textWhite"
+                    android:textStyle="bold"
+                    android:layout_marginTop="14dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    app:cardBackgroundColor="@color/cardInner">
+
+                    <TextView
+                        android:id="@+id/analysisResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/analysis_placeholder"
+                        android:textColor="@color/textWhite"
+                        android:textSize="14sp" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- Chat -->
+                <TextView
+                    android:id="@+id/chatLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chat_label"
+                    android:textSize="18sp"
+                    android:textColor="@color/textWhite"
+                    android:textStyle="bold"
+                    android:layout_marginTop="18dp" />
+
+                <!-- RecyclerView Chat -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardBackgroundColor="@color/cardDark">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/chatRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- Chat Input -->
+                <LinearLayout
+                    android:id="@+id/chatInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <EditText
+                        android:id="@+id/chatInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/type_message"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/inputDark"
+                        android:padding="12dp"
+                        android:inputType="text" />
+
+                    <Button
+                        android:id="@+id/sendChatButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/send"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@color/primaryLight"
+                        android:textColor="@color/bgDark" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

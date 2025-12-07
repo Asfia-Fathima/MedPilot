@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">MedAce</string>
+
+    <!-- Sidebar -->
+    <string name="home">Home</string>
+    <string name="history">History</string>
+    <string name="help_email">Need help?\n m.medaceinfo@gmail.com</string>
+
+    <!-- Upload Section -->
+    <string name="upload_report">Upload Report</string>
+    <string name="select_image">Choose image (jpg/png)</string>
+    <string name="no_file_selected">No file selected</string>
+
+    <!-- OCR Section -->
+    <string name="ocr_result">OCR Result</string>
+    <string name="ocr_placeholder">Extracted text will appear here</string>
+
+    <!-- AI Section -->
+    <string name="ai_analysis">AI Analysis</string>
+    <string name="analysis_placeholder">Summary and insights will appear here</string>
+
+    <!-- Chatbox -->
+    <string name="chat_label">💬 Chat with MedAce</string>
+    <string name="send">Send</string>
+    <string name="type_message">Type a message...</string>
+
+    <!-- Menu Button -->
+    <string name="cd_menu_button">Menu</string>
+</resources>
